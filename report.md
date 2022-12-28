@@ -61,7 +61,7 @@ A: The data is skimmed to check for any inconsisities or missings. There are no 
 | 17 | sleepDay_merged | sleepDay | 
 | 18 | weightLogInfo_merged | weight_log_info |
 
-+ Since tables with column data in the format mm/dd/yy hh:mm:ss AM/PM are loaded as *string* datatype, need to convert them into timestamp datatype. The code snippet to modify the data type is shown below:
++ Since tables with column data in the format mm/dd/yyyy hh:mm:ss AM/PM are loaded as *string* datatype, need to convert them into *timestamp* datatype. The code snippet to modify the data type is shown below:
 ```sql
 CREATE OR REPLACE TABLE `capstone.heartrate_seconds` AS
 SELECT
@@ -70,3 +70,4 @@ SELECT
 FROM
   `capstone.heartrate_seconds`
 ```
++ There are NULL values in the table 'weight_log_info', which are replaced using the expression ```IFNULL(column, value_to_replace)```
