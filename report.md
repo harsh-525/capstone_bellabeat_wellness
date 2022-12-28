@@ -36,7 +36,10 @@ A: No. The data is collected by [Möbius](https://www.kaggle.com/arashnic) and i
 Q: How did you verify the data’s integrity?  
 A: The data is skimmed to check for any inconsisities or missings. There are no such findings.
 
-csv file -> BQ table mapping is as follows:
+## **PROCESS**
+
++ csv file -> BQ table mapping is as follows:  
+
 | #    | CSV file name | BQ table name  |
 |-----:|---------------|----------------|
 | 1 | dailyActivity_merged | daily_activity |
@@ -58,4 +61,4 @@ csv file -> BQ table mapping is as follows:
 | 17 | sleepDay_merged | sleepDay | 
 | 18 | weightLogInfo_merged | weight_log_info |
 
-
+:information_source: NOTE: Tables with column data in the format mm/dd/yy hh:mm:ss AM/PM are loaded as *string* datatype.
