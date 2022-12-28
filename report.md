@@ -34,7 +34,7 @@ Q: Are there any bias or issues in credibility of data?
 A: No. The data is collected by [Möbius](https://www.kaggle.com/arashnic) and is under the license [CC0: Public Domain](https://creativecommons.org/publicdomain/zero/1.0/).
 
 Q: How did you verify the data’s integrity?  
-A: The data is skimmed to check for any inconsisities or missings. There are no such findings.
+A: The integrity check was done by the kaggle community. [check here](https://www.kaggle.com/datasets/arashnic/fitbit/discussion/357890)
 
 ## **PROCESS**
 
