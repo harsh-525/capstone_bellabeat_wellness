@@ -61,4 +61,12 @@ A: The data is skimmed to check for any inconsisities or missings. There are no 
 | 17 | sleepDay_merged | sleepDay | 
 | 18 | weightLogInfo_merged | weight_log_info |
 
-:information_source: NOTE: Tables with column data in the format mm/dd/yy hh:mm:ss AM/PM are loaded as *string* datatype.
++ Since tables with column data in the format mm/dd/yy hh:mm:ss AM/PM are loaded as *string* datatype, need to convert them into timestamp datatype. The code snippet to modify the data type is shown below:
+```sql
+CREATE OR REPLACE TABLE `capstone.heartrate_seconds` AS
+SELECT
+  * EXCEPT (time),
+  PARSE_TIMESTAMP("%m/%d/%Y %I:%M:%S %p", time) time
+FROM
+  `capstone.heartrate_seconds`
+```
