@@ -40,28 +40,28 @@ A: The data is skimmed to check for any inconsisities or missings. There are no 
 
 + csv file -> BQ table mapping is as follows:  
 
-| #    | CSV file name | BQ table name  |
-|-----:|---------------|----------------|
-| 1 | dailyActivity_merged | daily_activity |
-| 2 | dailyCalories_merged | daily_calories|
-| 3 | dailyIntensities_merged | daily_intensities |
-| 4 | dailySteps_merged | daily_steps |
-| 5 | heartrate_seconds_merged | heartrate_seconds |
-| 6 | seconds_merged | heartrate_seconds |
-| 7 | hourlyCalories_merged | hourly_calories |
-| 8 | hourlySteps_merged | hourly_steps | 
-| 9 | minuteCaloriesNarrow_merged | minute_calories_narrow |
-| 10 | minuteCaloriesWide_merged | minute_calories_wide |
-| 11 | minuteIntensitiesNarrow_merged | minute_intensities_narrow |
-| 12 | minuteIntensitiesWide_merged |   minute_intensities_wide |
-| 13 | minuteMETsNarrow_merged | minute_METs_narrow |
-| 14 | minuteSleep_merged | minute_sleep |
-| 15 | minuteStepsNarrow_merged | minute_steps_narrow |
-| 16 | minuteStepsWide_merged | minute_steps_narrow |
-| 17 | sleepDay_merged | sleepDay | 
-| 18 | weightLogInfo_merged | weight_log_info |
+| #    | CSV file name | BQ table name  | Total row count |
+|-----:|---------------|----------------|----------------|
+| 1 | dailyActivity_merged | daily_activity | 940 |
+| 2 | dailyCalories_merged | daily_calories| 940 |
+| 3 | dailyIntensities_merged | daily_intensities | 940 |
+| 4 | dailySteps_merged | daily_steps | 940 |
+| 5 | heartrate_seconds_merged | heartrate_seconds | 2,483,658 |
+| 6 | hourlyIntensities_merged | hourly_intensities | 22,099 |
+| 7 | hourlyCalories_merged | hourly_calories | 22,099 |
+| 8 | hourlySteps_merged | hourly_steps | 22,099 |
+| 9 | minuteCaloriesNarrow_merged | minute_calories_narrow | 1,325,580 |
+| 10 | minuteCaloriesWide_merged | minute_calories_wide | 21,645 |
+| 11 | minuteIntensitiesNarrow_merged | minute_intensities_narrow | 1,325,580 |
+| 12 | minuteIntensitiesWide_merged |   minute_intensities_wide | 21,645 |
+| 13 | minuteMETsNarrow_merged | minute_METs_narrow | 1,325,580 |
+| 14 | minuteSleep_merged | minute_sleep | 188,521 |
+| 15 | minuteStepsNarrow_merged | minute_steps_narrow |1,325,580|
+| 16 | minuteStepsWide_merged | minute_steps_narrow |21,645|
+| 17 | sleepDay_merged | sleepDay | 413|
+| 18 | weightLogInfo_merged | weight_log_info | 67|
 
-+ Since tables with column data in the format mm/dd/yyyy hh:mm:ss AM/PM are loaded as *string* datatype, need to convert them into *timestamp* datatype. The code snippet to modify the data type is shown below:
++ Since tables with column data in the format 'mm/dd/yyyy hh:mm:ss AM/PM' are loaded as *STRING* datatype, need to convert them into *TIMESTAMP* datatype. The code snippet to modify the data type is shown below:
 ```sql
 CREATE OR REPLACE TABLE `capstone.heartrate_seconds` AS
 SELECT
@@ -70,4 +70,6 @@ SELECT
 FROM
   `capstone.heartrate_seconds`
 ```
-+ There are NULL values in the table 'weight_log_info', which are replaced using the expression ```IFNULL(column, value_to_replace)```
++ There are NULL values in the table 'weight_log_info', which are replaced using ```IFNULL(column, value_to_replace)```
+
+The data is processed, cleaned and removed of any inconsistency.
